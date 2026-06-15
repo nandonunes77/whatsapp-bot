@@ -1,0 +1,17 @@
+{
+  "name": "whatsapp-bridge",
+  "version": "1.0.0",
+  "description": "Bridge entre WhatsApp Web e o servidor Python FastAPI (via Baileys)",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node index.js"
+  },
+  "dependencies": {
+    "@whiskeysockets/baileys": "7.0.0-rc13",
+    "qrcode-terminal": "^0.12.0",
+    "axios": "^1.7.0",
+    "pino": "^9.0.0",
+    "pino-pretty": "^11.0.0"
+  }
+}

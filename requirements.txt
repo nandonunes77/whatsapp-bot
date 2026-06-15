@@ -1,0 +1,22 @@
+# ============================================
+# Dependências do Chatbot WhatsApp com IA
+# ============================================
+# Instalar com: pip install -r requirements.txt
+
+# --- Servidor Web ---
+fastapi>=0.115.0
+uvicorn[standard]>=0.32.0
+
+# --- Requisições HTTP (chamar APIs) ---
+httpx>=0.28.0
+
+# --- Variáveis de ambiente ---
+python-dotenv>=1.0.0
+
+# --- Processamento de documentos ---
+pypdf2>=3.0.0           # Ler PDFs
+markdown>=3.7.0          # Ler arquivos .md
+
+# --- Embeddings e busca vetorial (Fase 2) ---
+# sentence-transformers>=3.0.0  # Descomentar na Fase 2
+# chromadb>=0.5.0               # Descomentar na Fase 2

@@ -1,0 +1,59 @@
+# ═══════════════════════════════════════════
+# 🔑 SEGURANÇA — NUNCA versionar esses!
+# ═══════════════════════════════════════════
+
+# Chaves de API e configurações sensíveis
+.env
+.env.local
+*.key
+*cred*.json
+*secret*.json
+
+# Sessão do WhatsApp (credenciais de login)
+whatsapp-bridge/whatsapp-auth/
+whatsapp-bridge/*.auth/
+
+# ═══════════════════════════════════════════
+# 🐍 Python
+# ═══════════════════════════════════════════
+
+# Ambiente virtual
+venv/
+.venv/
+env/
+
+# Cache do Python
+__pycache__/
+*.py[cod]
+*.pyo
+*$py.class
+.pytest_cache/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# ═══════════════════════════════════════════
+# 📦 Node.js
+# ═══════════════════════════════════════════
+
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ═══════════════════════════════════════════
+# 📁 Sistemas
+# ═══════════════════════════════════════════
+
+.DS_Store
+Thumbs.db
+*.log
+
+# ═══════════════════════════════════════════
+# 🤖 ChromaDB (dados vetoriais, se usar no futuro)
+# ═══════════════════════════════════════════
+
+chroma_data/
