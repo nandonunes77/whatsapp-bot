@@ -114,7 +114,24 @@ O extrator usa IA (DeepSeek) como fallback quando faltam campos cruciais (data, 
 
 ## 🚀 Como Rodar
 
-### 1. Servidor Python
+### Opção 1: Script automático (recomendado)
+
+```bash
+cd whatsapp-bot
+
+# Iniciar tudo (Python + WhatsApp)
+./start.sh
+
+# Ver status
+./status.sh
+
+# Parar tudo
+./stop.sh
+```
+
+### Opção 2: Manual
+
+#### 1. Servidor Python
 
 ```bash
 cd whatsapp-bot
@@ -122,22 +139,22 @@ source venv/bin/activate
 python bot.py
 ```
 
-### 2. Conexão WhatsApp
+#### 2. Conexão WhatsApp
 
 ```bash
 cd whatsapp-bridge
-npm install  # Se ainda não instalou
 node index.js
 ```
 
 Na primeira vez, **escaneie o QR Code** com seu WhatsApp.
 
-### 3. Extrair um Evento
+### 3. Testar sem o WhatsApp
 
 ```bash
-# Via terminal
-python testar_extrator.py https://baladapp.com.br/evento/xxx
-
+curl -X POST http://localhost:8000/webhook \
+  -H "Content-Type: application/json" \
+  -d '{"de":"5511999998888","mensagem":"Qual o horário do evento?"}'
+```
 # Via API (com servidor rodando)
 curl -X POST http://localhost:8000/extrair \
   -H "Content-Type: application/json" \
