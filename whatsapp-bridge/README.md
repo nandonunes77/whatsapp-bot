@@ -15,7 +15,7 @@ Esta versão inclui proteções contra banimento temporário do WhatsApp:
 
 | Proteção | Configuração | Descrição |
 |----------|--------------|-----------|
-| Rate limiting de QR | `MAX_QR_CODES=5` | Máximo 5 QR codes, depois pausa 5min |
+| Rate limiting de QR | `MAX_QR_CODES=1` | Apenas 1 QR code, depois pausa 5min |
 | Backoff exponencial | `RECONNECT_BASE_MS=5000` | Espera mais tempo entre reconexões |
 | Verificação de sessão | Automático | Verifica se já tem sessão válida |
 | Tratamento de disconnect | Automático | Não reconecta em logout |

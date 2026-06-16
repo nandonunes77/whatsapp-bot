@@ -32,8 +32,8 @@ const PYTHON_SERVER = process.env.BOT_SERVER || 'http://localhost:8000';
 
 // Configurações de proteção contra ban
 const CONFIG = {
-    MAX_QR_CODES: 5,           // Máximo de QR codes antes de pausar
-    QR_PAUSE_MS: 5 * 60 * 1000, // 5 minutos de pausa após max QR codes
+    MAX_QR_CODES: 1,           // Apenas 1 QR code por tentativa
+    QR_PAUSE_MS: 5 * 60 * 1000, // 5 minutos de pausa se não escanear
     RECONNECT_BASE_MS: 5000,    // 5 segundos base para reconexão
     RECONNECT_MAX_MS: 60000,    // Máximo 1 minuto entre reconexões
     QR_EXPIRY_MS: 20000,        // QR code válido por ~20 segundos
