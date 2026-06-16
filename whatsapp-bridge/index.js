@@ -1,6 +1,6 @@
 /**
  * ╔══════════════════════════════════════════╗
- * ║   WHATSAPP BRIDGE (via Baileys v6)     ║
+ * ║   WHATSAPP BRIDGE (via Baileys v7)     ║
  * ║   Conecta WhatsApp → Python FastAPI    ║
  * ╚══════════════════════════════════════════╝
  *
