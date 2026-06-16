@@ -5,167 +5,722 @@
     "instagram": "@arenatriangulo",
     "site_vendas": "https://baladapp.com.br/pt-BR/evento/arena-triangulo-uberlandia/8797"
   },
-
   "evento": {
     "nome": "Arena Triângulo",
     "descricao": "Arena Triângulo da Copa do Mundo — experiência completa de futebol, música e entretenimento no Castelli Hall em Uberlândia/MG",
     "local": "Castelli Eventos - Uberlândia / MG",
     "classificacao": "+16 (Menores de 16 anos apenas acompanhados dos pais ou responsável legal)"
   },
-
   "categorias": {
     "datas_horarios": {
       "label": "Datas e Horários",
       "perguntas": [
         {
           "id": "data_1",
-          "palavras_chave": ["data", "dia", "quando", "acontece", "datas"],
+          "palavras_chave": [
+            "data",
+            "dia",
+            "quando",
+            "acontece",
+            "datas"
+          ],
           "pergunta": "Quando vai ser o evento?",
           "resposta": "A Arena Triângulo acontece em 3 datas:\n\n📅 **Sábado - 13/06** — Abertura às 15h\n📅 **Sexta - 19/06** — Abertura às 19h\n📅 **Quarta - 24/06** — Abertura às 17h\n\n📍 Local: Castelli Eventos, Uberlândia / MG"
         },
         {
           "id": "data_2",
-          "palavras_chave": ["horario", "horário", "abertura", "abre", "aberto"],
+          "palavras_chave": [
+            "horario",
+            "horário",
+            "abertura",
+            "abre",
+            "aberto"
+          ],
           "pergunta": "Qual o horário de abertura?",
           "resposta": "Cada dia tem um horário diferente:\n\n🔸 13/06 (Sábado) — 15h\n🔸 19/06 (Sexta) — 19h\n🔸 24/06 (Quarta) — 17h"
         },
         {
           "id": "data_3",
-          "palavras_chave": ["local", "lugar", "onde", "endereco", "endereço"],
+          "palavras_chave": [
+            "local",
+            "lugar",
+            "onde",
+            "endereco",
+            "endereço"
+          ],
           "pergunta": "Onde vai ser o evento?",
           "resposta": "📍 **Castelli Eventos** — Uberlândia / MG\n\nO evento acontece em 3 datas: 13, 19 e 24 de junho. Para mais informações, siga @arenatriangulo no Instagram."
         }
       ]
     },
-
     "ingressos": {
       "label": "Ingressos e Valores",
       "perguntas": [
         {
           "id": "ingresso_1",
-          "palavras_chave": ["ingresso", "tipo", "passaporte", "individual", "setor"],
+          "palavras_chave": [
+            "ingresso",
+            "tipo",
+            "passaporte",
+            "individual",
+            "setor"
+          ],
           "pergunta": "Quais tipos de ingresso estão disponíveis?",
           "resposta": "Temos as seguintes opções:\n\n🎟️ **PASSAPORTE 03 DIAS** — Acesso aos 3 dias de evento\n🎟️ **PASSAPORTE 02 DIAS** — Acesso a 2 dias do evento\n🎟️ **INDIVIDUAL** — Acesso a 1 dia do evento\n🎟️ **INDIVIDUAL + COPO** — Ingresso individual + copo personalizado\n\n⚠️ Setor Único — todos os ingressos dão acesso ao mesmo setor."
         },
         {
           "id": "ingresso_2",
-          "palavras_chave": ["preco", "preço", "valor", "custa", "quanto", "caro", "barato"],
+          "palavras_chave": [
+            "preco",
+            "preço",
+            "valor",
+            "custa",
+            "quanto",
+            "caro",
+            "barato"
+          ],
           "pergunta": "Quanto custa o ingresso?",
           "resposta": "Os valores não estão divulgados no momento. As vendas são feitas exclusivamente pelo site ou aplicativo da BaladAPP (by Ticketmaster).\n\nAcesse: https://baladapp.com.br/pt-BR/evento/arena-triangulo-uberlandia/8797\n\n💡 Dica: Fique atento ao site para atualizações de preços e disponibilidade!"
         },
         {
           "id": "ingresso_3",
-          "palavras_chave": ["comprar", "compra", "adquirir", "site", "baladapp", "venda"],
+          "palavras_chave": [
+            "comprar",
+            "compra",
+            "adquirir",
+            "site",
+            "baladapp",
+            "venda"
+          ],
           "pergunta": "Onde comprar o ingresso?",
           "resposta": "As vendas são **EXCLUSIVAS** pelo site ou aplicativo da **BaladAPP by Ticketmaster**.\n\n🔗 Link direto: https://baladapp.com.br/pt-BR/evento/arena-triangulo-uberlandia/8797\n\n⚠️ Não nos responsabilizamos por compras fora da plataforma oficial. Evite falsificações!"
         },
         {
           "id": "ingresso_4",
-          "palavras_chave": ["meia", "meia entrada", "solidaria", "solidária", "desconto", "promocao", "promoção"],
+          "palavras_chave": [
+            "meia",
+            "meia entrada",
+            "solidaria",
+            "solidária",
+            "desconto",
+            "promocao",
+            "promoção"
+          ],
           "pergunta": "Tem meia-entrada?",
           "resposta": "Sim! A meia-entrada é **solidária**:\n\n🥫 **Mediante a doação de 1kg de alimento não perecível**\n\nLeve seu alimento no dia do evento e garanta o benefício!"
         },
         {
           "id": "ingresso_5",
-          "palavras_chave": ["cancelamento", "cancelar", "reembolso", "estorno", "desistir", "politica", "política"],
+          "palavras_chave": [
+            "cancelamento",
+            "cancelar",
+            "reembolso",
+            "estorno",
+            "desistir",
+            "politica",
+            "política"
+          ],
           "pergunta": "Posso cancelar ou pedir reembolso?",
           "resposta": "Sim, dentro da política de cancelamento:\n\n✅ Prazo de até **7 dias após a compra**\n✅ **Sem ultrapassar 48 horas antes do evento**\n\nPara solicitar, acesse sua conta no site da BaladAPP.\n\n❌ Não comparecer ao evento invalida o ingresso e não permite reembolso."
         },
         {
           "id": "ingresso_6",
-          "palavras_chave": ["transferir", "trocar", "nome", "utilizador", "outra pessoa", "presente"],
+          "palavras_chave": [
+            "transferir",
+            "trocar",
+            "nome",
+            "utilizador",
+            "outra pessoa",
+            "presente"
+          ],
           "pergunta": "Posso transferir o ingresso para outra pessoa?",
           "resposta": "Sim! É possível alterar o usuário **1 vez**, até **0h antes do início do evento**.\n\n📝 Regras por tipo de ingresso:\n- PASSAPORTE 03 DIAS → 1 troca\n- PASSAPORTE 02 DIAS → 1 troca\n- INDIVIDUAL → 1 troca\n- INDIVIDUAL + COPO → 1 troca\n\n⚠️ Se o ingresso não é para você, informe os dados do usuário correto no momento da compra."
         }
       ]
     },
-
     "atracoes": {
       "label": "Atrações e Programação",
       "perguntas": [
         {
           "id": "atracoes_1",
-          "palavras_chave": ["atracao", "atração", "atracoes", "atrações", "artista", "musica", "música", "banda", "show", "dj", "tocar", "toca", "quem toca", "artistas"],
+          "palavras_chave": [
+            "atracao",
+            "atração",
+            "atracoes",
+            "atrações",
+            "artista",
+            "musica",
+            "música",
+            "banda",
+            "show",
+            "dj",
+            "tocar",
+            "toca",
+            "quem toca",
+            "artistas"
+          ],
           "pergunta": "Quais são as atrações do evento?",
           "resposta": "As atrações confirmadas são:\n\n🎵 **Som de Faculdade**\n🎵 **Leaf DJ Set**\n🎵 **Kaik & Ricardo**\n🎵 **Ulisses DJ**\n🎵 **Samhara**\n\n🎶 O evento conta com open format musical e mais artistas serão revelados em breve!"
         }
       ]
     },
-
     "regras": {
       "label": "Regras e Proibições",
       "perguntas": [
         {
           "id": "regras_1",
-          "palavras_chave": ["proibido", "entrada", "nao pode", "não pode", "permitido", "regra", "item", "levar", "objeto"],
+          "palavras_chave": [
+            "proibido",
+            "entrada",
+            "nao pode",
+            "não pode",
+            "permitido",
+            "regra",
+            "item",
+            "levar",
+            "objeto"
+          ],
           "pergunta": "O que é proibido levar para o evento?",
           "resposta": "É **PROIBIDA** a entrada de:\n\n🚫 Drogas ou substâncias ilegais\n🚫 Armas, objetos pontiagudos, facas\n🚫 Vasilhames, copos de vidro ou qualquer embalagem (vazia ou com bebida)\n🚫 Perfumes e cosméticos em vidro/plástico/metal\n🚫 Alimentos ou bebidas comprados fora (exceto com receita médica)\n🚫 Capacetes de moto\n🚫 Animais de estimação\n🚫 Fogos de artifício, inflamáveis\n🚫 Roupas ou acessórios com partes pontiagudas\n🚫 Máscaras que cubram o rosto"
         },
         {
           "id": "regras_2",
-          "palavras_chave": ["documento", "identidade", "rg", "ingresso", "entrada", "obrigatorio", "obrigatório"],
+          "palavras_chave": [
+            "documento",
+            "identidade",
+            "rg",
+            "ingresso",
+            "entrada",
+            "obrigatorio",
+            "obrigatório"
+          ],
           "pergunta": "Preciso levar documento?",
           "resposta": "**Sim, é obrigatório!**\n\nApresente na entrada:\n✅ **Ingresso** (digital no celular ou impresso)\n✅ **Documento oficial com foto** (RG, CNH, passaporte)\n\nSem documento, a entrada poderá ser negada."
         },
         {
           "id": "regras_3",
-          "palavras_chave": ["idade", "menor", "crianca", "criança", "acompanhado", "classificacao", "classificação", "16"],
+          "palavras_chave": [
+            "idade",
+            "menor",
+            "crianca",
+            "criança",
+            "acompanhado",
+            "classificacao",
+            "classificação",
+            "16"
+          ],
           "pergunta": "Menores de idade podem entrar?",
           "resposta": "A classificação é **+16**:\n\n👶 Menores de **16 anos** — podem entrar apenas **acompanhados dos pais ou responsável legal**\n\n🆔 É obrigatória a apresentação de documento oficial com foto na entrada."
         },
         {
           "id": "regras_4",
-          "palavras_chave": ["alcool", "álcool", "bebida", "beber", "consumo"],
+          "palavras_chave": [
+            "alcool",
+            "álcool",
+            "bebida",
+            "beber",
+            "consumo"
+          ],
           "pergunta": "Pode consumir bebida alcoólica?",
           "resposta": "⚠️ **Expressamente proibido** o consumo de bebidas alcoólicas para **menores de 18 anos**.\n\n🍺 Bebidas alcoólicas são comercializadas dentro do evento para maiores de idade.\n\n🚗 **Se beber, não dirija!**"
         }
       ]
     },
-
     "contato": {
       "label": "Contato e Suporte",
       "perguntas": [
         {
           "id": "contato_1",
-          "palavras_chave": ["contato", "falar", "fone", "telefone", "whatsapp", "email", "e-mail", "suporte", "ajuda", "duvida", "dúvida"],
+          "palavras_chave": [
+            "contato",
+            "falar",
+            "fone",
+            "telefone",
+            "whatsapp",
+            "email",
+            "e-mail",
+            "suporte",
+            "ajuda",
+            "duvida",
+            "dúvida"
+          ],
           "pergunta": "Como entrar em contato com a produção?",
           "resposta": "Canais de contato:\n\n📱 **Instagram:** @arenatriangulo\n📧 **Suporte BaladAPP:** contato@baladapp.com.br\n📞 **Atendimento:** (62) 3434-8450\n\n🕐 Horários de atendimento:\n- Seg a Sex: 08h às 20h\n- Sábado: 10h às 20h (Disque 3)\n- Domingo: 10h às 14h (Disque 3)"
         },
         {
           "id": "contato_2",
-          "palavras_chave": ["instagram", "rede social", "social", "seguir", "pagina", "página"],
+          "palavras_chave": [
+            "instagram",
+            "rede social",
+            "social",
+            "seguir",
+            "pagina",
+            "página"
+          ],
           "pergunta": "Qual o Instagram do evento?",
           "resposta": "📱 **Instagram oficial:** @arenatriangulo\n\nSiga para ficar por dentro de:\n✅ Novidades e atrações\n✅ Informações oficiais\n✅ Promoções e avisos importantes"
         },
         {
           "id": "contato_3",
-          "palavras_chave": ["pergunta", "duvida", "dúvida", "frequente", "faq", "tirar", "esclarecer"],
+          "palavras_chave": [
+            "pergunta",
+            "duvida",
+            "dúvida",
+            "frequente",
+            "faq",
+            "tirar",
+            "esclarecer"
+          ],
           "pergunta": "Onde encontro mais perguntas frequentes?",
           "resposta": "Acesse as perguntas frequentes diretamente no site da BaladAPP:\n\n🔗 https://baladapp.com.br/pt-BR/evento/arena-triangulo-uberlandia/8797\n\nOu entre em contato pelo e-mail: contato@baladapp.com.br"
         }
       ]
     },
-
     "vip_estrutura": {
       "label": "Estrutura e Serviços",
       "perguntas": [
         {
           "id": "vip_1",
-          "palavras_chave": ["estacionamento", "estacionar", "carro", "estaciona", "vaga"],
+          "palavras_chave": [
+            "estacionamento",
+            "estacionar",
+            "carro",
+            "estaciona",
+            "vaga"
+          ],
           "pergunta": "Tem estacionamento no local?",
           "resposta": "Não temos essa informação disponível no momento. Recomendamos entrar em contato com o Castelli Eventos diretamente ou seguir o Instagram @arenatriangulo para mais detalhes sobre a estrutura."
         },
         {
           "id": "vip_2",
-          "palavras_chave": ["emergencia", "emergência", "paramedico", "médico", "socorro", "ambulancia", "ambulância", "primeiros socorros"],
+          "palavras_chave": [
+            "emergencia",
+            "emergência",
+            "paramedico",
+            "médico",
+            "socorro",
+            "ambulancia",
+            "ambulância",
+            "primeiros socorros"
+          ],
           "pergunta": "Tem suporte médico no evento?",
           "resposta": "Sim! ✅ **Emergência e paramédicos** estarão presentes no local durante todo o evento."
         },
         {
           "id": "vip_3",
-          "palavras_chave": ["comida", "bebida", "bar", "lanche", "alimentacao", "alimentação", "dentro do evento", "vende dentro"],
+          "palavras_chave": [
+            "comida",
+            "bebida",
+            "bar",
+            "lanche",
+            "alimentacao",
+            "alimentação",
+            "dentro do evento",
+            "vende dentro"
+          ],
           "pergunta": "Tem venda de comida e bebida no evento?",
           "resposta": "Sim, o evento conta com estrutura de alimentação e bebidas.\n\n⚠️ **Não é permitido entrar com alimentos ou bebidas comprados fora do evento** (exceto mediante receita médica comprovando necessidade alimentar especial)."
+        }
+      ]
+    },
+    "datas_ana_carolina": {
+      "label": "📅 Ana Carolina — Datas",
+      "perguntas": [
+        {
+          "id": "evento_1_data",
+          "palavras_chave": [
+            "data",
+            "quando",
+            "dia",
+            "acontece",
+            "ana carolina",
+            "turne 25 anos"
+          ],
+          "pergunta": "Quando vai ser Ana Carolina?",
+          "resposta": "📅 **TURNÊ 25 ANOS - ANA CAROLINA**\nData: 11/04/2026 às 21:00\n📍 Local: , Uberlândia/MG"
+        }
+      ]
+    },
+    "ingressos_ana_carolina": {
+      "label": "🎟️ Ana Carolina — Ingressos",
+      "perguntas": [
+        {
+          "id": "evento_1_setores",
+          "palavras_chave": [
+            "setor",
+            "ingresso",
+            "tipo",
+            "opcao",
+            "ana carolina"
+          ],
+          "pergunta": "Quais os setores/ingressos de Ana Carolina?",
+          "resposta": "Setores disponíveis:\n🎟️ **Bistrô** — R$ 300.00\n🎟️ **Frontstage** — R$ 190.00\n🎟️ **Pista Premium** — R$ 220.00\n🎟️ **Área VIP**\n🎟️ **Pista** — R$ 220.00"
+        }
+      ]
+    },
+    "contato_ana_carolina": {
+      "label": "📞 Ana Carolina — Contato",
+      "perguntas": [
+        {
+          "id": "evento_1_contato",
+          "palavras_chave": [
+            "contato",
+            "instagram",
+            "telefone",
+            "ana carolina"
+          ],
+          "pergunta": "Como falar com Ana Carolina?",
+          "resposta": "📞 Telefone: **(11) 93619.9850**"
+        }
+      ]
+    },
+    "geral_ana_carolina": {
+      "label": "🎉 Ana Carolina — Info Geral",
+      "perguntas": [
+        {
+          "id": "evento_1_geral",
+          "palavras_chave": [
+            "ana carolina",
+            "turne 25 anos",
+            "evento",
+            "show"
+          ],
+          "pergunta": "Me fale sobre Ana Carolina",
+          "resposta": "🎉 **TURNÊ 25 ANOS - ANA CAROLINA**\n🎤 Artista: Ana Carolina\n📅 Data: 11/04/2026 às 21:00\n📍 Local: TURNÊ 25 ANOS - ANA CAROLINA — Uberlândia/MG\n🎫 Plataforma: MeuBilhete\n🔗 https://www.meubilhete.com.br/turne-25-anos-ana-carolina"
+        }
+      ]
+    },
+    "datas_victor_leo": {
+      "label": "📅 Victor & Leo — Datas",
+      "perguntas": [
+        {
+          "id": "evento_2_data",
+          "palavras_chave": [
+            "data",
+            "quando",
+            "dia",
+            "acontece",
+            "victor & leo",
+            "victor & leo turne e"
+          ],
+          "pergunta": "Quando vai ser Victor & Leo?",
+          "resposta": "📅 **Victor & Leo Turnê Essência - Uberlândia - 17/10/2026**\nData: 17/10/2026 às 20:00\n📍 Local: , Uberlândia/MG"
+        }
+      ]
+    },
+    "ingressos_victor_leo": {
+      "label": "🎟️ Victor & Leo — Ingressos",
+      "perguntas": [
+        {
+          "id": "evento_2_setores",
+          "palavras_chave": [
+            "setor",
+            "ingresso",
+            "tipo",
+            "opcao",
+            "victor & leo"
+          ],
+          "pergunta": "Quais os setores/ingressos de Victor & Leo?",
+          "resposta": "Setores disponíveis:\n🎟️ **Camarote**\n🎟️ **Mesa Diamante**\n🎟️ **Mesa Ouro**"
+        },
+        {
+          "id": "evento_2_meia",
+          "palavras_chave": [
+            "meia",
+            "solidaria",
+            "desconto",
+            "alimento",
+            "victor & leo"
+          ],
+          "pergunta": "Tem meia-entrada para Victor & Leo?",
+          "resposta": "🎫 **Meia-entrada:** Solidária: doação de 1kg de alimento não perecível"
+        }
+      ]
+    },
+    "contato_victor_leo": {
+      "label": "📞 Victor & Leo — Contato",
+      "perguntas": [
+        {
+          "id": "evento_2_contato",
+          "palavras_chave": [
+            "contato",
+            "instagram",
+            "telefone",
+            "victor & leo"
+          ],
+          "pergunta": "Como falar com Victor & Leo?",
+          "resposta": "📱 Instagram: **@globalmusic**"
+        }
+      ]
+    },
+    "geral_victor_leo": {
+      "label": "🎉 Victor & Leo — Info Geral",
+      "perguntas": [
+        {
+          "id": "evento_2_geral",
+          "palavras_chave": [
+            "victor & leo",
+            "victor & leo tu",
+            "evento",
+            "show"
+          ],
+          "pergunta": "Me fale sobre Victor & Leo",
+          "resposta": "🎉 **Victor & Leo Turnê Essência - Uberlândia - 17/10/2026**\n🎤 Artista: Victor & Leo\n📅 Data: 17/10/2026 às 20:00\n📍 Local: Victor & Leo Turnê Essência - Uberlândia - 17/10/2026 — Uberlândia/MG\n🎫 Plataforma: Ticket360\n🔗 https://www.ticket360.com.br/evento/33224/ingressos-para-victor-e-leo-turne-essencia"
+        }
+      ]
+    },
+    "datas_capital_inicial": {
+      "label": "📅 Capital Inicial — Datas",
+      "perguntas": [
+        {
+          "id": "evento_3_data",
+          "palavras_chave": [
+            "data",
+            "quando",
+            "dia",
+            "acontece",
+            "capital inicial",
+            "capital inicial em u"
+          ],
+          "pergunta": "Quando vai ser Capital Inicial?",
+          "resposta": "📅 **Capital Inicial em Uberlândia**\nData: 03/07/2026 às 20:00\n📍 Local: , Uberlândia/MG"
+        }
+      ]
+    },
+    "ingressos_capital_inicial": {
+      "label": "🎟️ Capital Inicial — Ingressos",
+      "perguntas": [
+        {
+          "id": "evento_3_setores",
+          "palavras_chave": [
+            "setor",
+            "ingresso",
+            "tipo",
+            "opcao",
+            "capital inicial"
+          ],
+          "pergunta": "Quais os setores/ingressos de Capital Inicial?",
+          "resposta": "Setores disponíveis:\n🎟️ **Bistrô**\n🎟️ **Frontstage**\n🎟️ **Pista Premium**\n🎟️ **Área VIP**\n🎟️ **Lounge**\n🎟️ **Pista**"
+        }
+      ]
+    },
+    "regras_capital_inicial": {
+      "label": "🚫 Capital Inicial — Regras",
+      "perguntas": [
+        {
+          "id": "evento_3_classif",
+          "palavras_chave": [
+            "idade",
+            "classificacao",
+            "menor",
+            "capital inicial"
+          ],
+          "pergunta": "Qual a classificação de Capital Inicial?",
+          "resposta": "🔞 Classificação: **+18**"
+        },
+        {
+          "id": "evento_3_proibido",
+          "palavras_chave": [
+            "proibido",
+            "levar",
+            "pode levar",
+            "capital inicial"
+          ],
+          "pergunta": "O que é proibido levar em Capital Inicial?",
+          "resposta": "🚫 **Itens proibidos:** perfumes. Consulte o regulamento completo do evento."
+        }
+      ]
+    },
+    "contato_capital_inicial": {
+      "label": "📞 Capital Inicial — Contato",
+      "perguntas": [
+        {
+          "id": "evento_3_contato",
+          "palavras_chave": [
+            "contato",
+            "instagram",
+            "telefone",
+            "capital inicial"
+          ],
+          "pergunta": "Como falar com Capital Inicial?",
+          "resposta": "📱 Instagram: **@capitalinicial**\n📞 Telefone: **(62) 3434-8450\n    -**\n📧 E-mail: **contato@baladapp.com.br**"
+        }
+      ]
+    },
+    "geral_capital_inicial": {
+      "label": "🎉 Capital Inicial — Info Geral",
+      "perguntas": [
+        {
+          "id": "evento_3_geral",
+          "palavras_chave": [
+            "capital inicial",
+            "capital inicial",
+            "evento",
+            "show"
+          ],
+          "pergunta": "Me fale sobre Capital Inicial",
+          "resposta": "🎉 **Capital Inicial em Uberlândia**\n🎤 Artista: Capital Inicial\n📅 Data: 03/07/2026 às 20:00\n📍 Local: Capital Inicial em Uberlândia — Uberlândia/MG\n🔞 Classificação: +18\n🎫 Plataforma: BaladAPP\n🔗 https://baladapp.com.br/pt-BR/eventos/capital-inicial-em-uberlandia/8395"
+        }
+      ]
+    },
+    "datas_ralf": {
+      "label": "📅 Ralf — Datas",
+      "perguntas": [
+        {
+          "id": "evento_4_data",
+          "palavras_chave": [
+            "data",
+            "quando",
+            "dia",
+            "acontece",
+            "ralf",
+            "ralf"
+          ],
+          "pergunta": "Quando vai ser Ralf?",
+          "resposta": "📅 **Ralf - 40 anos de sucesso**\nData: 20/06/2026 às 22:00\n📍 Local: , Araguari/MG"
+        }
+      ]
+    },
+    "ingressos_ralf": {
+      "label": "🎟️ Ralf — Ingressos",
+      "perguntas": [
+        {
+          "id": "evento_4_setores",
+          "palavras_chave": [
+            "setor",
+            "ingresso",
+            "tipo",
+            "opcao",
+            "ralf"
+          ],
+          "pergunta": "Quais os setores/ingressos de Ralf?",
+          "resposta": "Setores disponíveis:\n🎟️ **Área VIP**\n🎟️ **Camarote**"
+        }
+      ]
+    },
+    "regras_ralf": {
+      "label": "🚫 Ralf — Regras",
+      "perguntas": [
+        {
+          "id": "evento_4_classif",
+          "palavras_chave": [
+            "idade",
+            "classificacao",
+            "menor",
+            "ralf"
+          ],
+          "pergunta": "Qual a classificação de Ralf?",
+          "resposta": "🔞 Classificação: **+18**"
+        },
+        {
+          "id": "evento_4_proibido",
+          "palavras_chave": [
+            "proibido",
+            "levar",
+            "pode levar",
+            "ralf"
+          ],
+          "pergunta": "O que é proibido levar em Ralf?",
+          "resposta": "🚫 **Itens proibidos:** perfumes. Consulte o regulamento completo do evento."
+        }
+      ]
+    },
+    "contato_ralf": {
+      "label": "📞 Ralf — Contato",
+      "perguntas": [
+        {
+          "id": "evento_4_contato",
+          "palavras_chave": [
+            "contato",
+            "instagram",
+            "telefone",
+            "ralf"
+          ],
+          "pergunta": "Como falar com Ralf?",
+          "resposta": "📱 Instagram: **@ralfemaraguari**\n📧 E-mail: **contato@baladapp.com.br**"
+        }
+      ]
+    },
+    "geral_ralf": {
+      "label": "🎉 Ralf — Info Geral",
+      "perguntas": [
+        {
+          "id": "evento_4_geral",
+          "palavras_chave": [
+            "ralf",
+            "ralf",
+            "evento",
+            "show"
+          ],
+          "pergunta": "Me fale sobre Ralf",
+          "resposta": "🎉 **Ralf - 40 anos de sucesso**\n🎤 Artista: Ralf\n📅 Data: 20/06/2026 às 22:00\n📍 Local: Ralf - 40 anos de sucesso — Araguari/MG\n🔞 Classificação: +18\n🎫 Plataforma: BaladAPP\n🔗 https://baladapp.com.br/pt-BR/eventos/ralf-40-anos-de-sucesso/8622"
+        }
+      ]
+    },
+    "datas_geriatricus": {
+      "label": "📅 Geriatricus — Datas",
+      "perguntas": [
+        {
+          "id": "evento_5_data",
+          "palavras_chave": [
+            "data",
+            "quando",
+            "dia",
+            "acontece",
+            "geriatricus",
+            "geriatricus"
+          ],
+          "pergunta": "Quando vai ser Geriatricus?",
+          "resposta": "📅 **Geriatricus - Montes Claros**\nData: 18/09/2026 às 20:00\n📍 Local: , Montes Claros/MG"
+        }
+      ]
+    },
+    "ingressos_geriatricus": {
+      "label": "🎟️ Geriatricus — Ingressos",
+      "perguntas": [
+        {
+          "id": "evento_5_setores",
+          "palavras_chave": [
+            "setor",
+            "ingresso",
+            "tipo",
+            "opcao",
+            "geriatricus"
+          ],
+          "pergunta": "Quais os setores/ingressos de Geriatricus?",
+          "resposta": "Setores disponíveis:\n🎟️ **Área VIP** — R$ 60,00\n🎟️ **Mesa Diamante** — R$ 670,00\n🎟️ **Mesa Ouro** — R$ 600,00\n🎟️ **Mesa Prata** — R$ 535,00"
+        }
+      ]
+    },
+    "regras_geriatricus": {
+      "label": "🚫 Geriatricus — Regras",
+      "perguntas": [
+        {
+          "id": "evento_5_classif",
+          "palavras_chave": [
+            "idade",
+            "classificacao",
+            "menor",
+            "geriatricus"
+          ],
+          "pergunta": "Qual a classificação de Geriatricus?",
+          "resposta": "🔞 Classificação: **+18**"
+        }
+      ]
+    },
+    "geral_geriatricus": {
+      "label": "🎉 Geriatricus — Info Geral",
+      "perguntas": [
+        {
+          "id": "evento_5_geral",
+          "palavras_chave": [
+            "geriatricus",
+            "geriatricus",
+            "evento",
+            "show"
+          ],
+          "pergunta": "Me fale sobre Geriatricus",
+          "resposta": "🎉 **Geriatricus - Montes Claros**\n🎤 Artista: Geriatricus\n📅 Data: 18/09/2026 às 20:00\n📍 Local: Geriatricus - Montes Claros — Montes Claros/MG\n🔞 Classificação: +18\n🎫 Plataforma: Guichê Live\n🔗 https://www.guichelive.com.br/geriatricus-montes-claros_51842"
         }
       ]
     }
