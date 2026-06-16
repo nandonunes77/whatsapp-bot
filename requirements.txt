@@ -9,18 +9,19 @@ uvicorn[standard]>=0.32.0
 
 # --- Requisições HTTP (chamar APIs) ---
 httpx>=0.28.0
+cloudscraper>=1.2.71
 
 # --- Variáveis de ambiente ---
 python-dotenv>=1.0.0
 
-# --- Processamento de documentos ---
-pypdf2>=3.0.0           # Ler PDFs
-markdown>=3.7.0          # Ler arquivos .md
+# --- Banco Vetorial (ChromaDB) ---
+chromadb>=1.0.0
 
-# --- Busca vetorial (RAG) ---
-scikit-learn>=1.5.0      # TF-IDF + cosine similarity
-numpy>=1.26.0            # Dependência do scikit-learn
+# --- Processamento de HTML/Documentos ---
+beautifulsoup4>=4.12.0
+lxml>=5.0.0
+pypdf2>=3.0.0
+markdown>=3.7.0
 
-# --- Embeddings e busca vetorial (Fase 2) ---
-# sentence-transformers>=3.0.0  # Descomentar na Fase 2
-# chromadb>=0.5.0               # Descomentar na Fase 2
+# --- Machine Learning (Embeddings) ---
+# sentence-transformers>=3.0.0  # Descomentar se precisar de embeddings customizados

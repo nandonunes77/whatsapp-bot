@@ -31,6 +31,8 @@ PASTA_ATUAL = Path(__file__).parent
 sys.path.insert(0, str(PASTA_ATUAL))
 
 from ai_engine import processar_mensagem
+from extractor import event_extractor
+from database import db_manager
 
 # ──────────────────────────────────────────
 # CONFIGURAÇÃO DE LOG
@@ -135,9 +137,9 @@ async def webhook(dados: MensagemRequest):
 
         logger.info(f"✅ Resposta enviada para {numero}")
 
-        # Descobre se veio da FAQ ou da IA (pelo tamanho/tipo)
-        # FAQ tem respostas mais curtas e diretas
-        metodo = "faq" if len(resposta) < 500 else "ia"
+        # Descobre se veio do ChromaDB ou da IA (pelo tamanho/tipo)
+        # ChromaDB tem respostas mais curtas e diretas
+        metodo = "chromadb" if len(resposta) < 500 else "ia"
 
         return MensagemResponse(
             para=numero,
@@ -149,6 +151,100 @@ async def webhook(dados: MensagemRequest):
     except Exception as erro:
         logger.error(f"❌ Erro ao processar mensagem: {erro}")
         raise HTTPException(status_code=500, detail=str(erro))
+
+
+# ──────────────────────────────────────────
+# ENDPOINTS DE EXTRAÇÃO DE EVENTOS
+# ──────────────────────────────────────────
+
+class ExtrairRequest(BaseModel):
+    """Requisição para extrair evento de uma URL."""
+    url: str = Field(..., description="URL do evento na bilheteria")
+
+
+class ExtrairResponse(BaseModel):
+    """Resposta da extração de evento."""
+    success: bool
+    evento_id: Optional[str] = None
+    nome: Optional[str] = None
+    data: Optional[str] = None
+    local: Optional[str] = None
+    message: str
+
+
+@app.post("/extrair", response_model=ExtrairResponse)
+async def extrair_evento(dados: ExtrairRequest):
+    """
+    🎯 EXTRATOR DE EVENTOS
+    Extrai dados de um evento a partir da URL da bilheteria.
+
+    Suporta: BaladAPP, Meu Bilhete, Ticket360, GuicheLive, IngressoLive, Q2 Ingressos
+    """
+    url = dados.url
+
+    logger.info(f"🔍 Extraindo evento de: {url}")
+
+    try:
+        evento_id = await event_extractor.extrair_e_salvar(url)
+
+        if evento_id:
+            # Busca o evento no banco para retornar os dados
+            eventos = db_manager.listar_eventos()
+            evento = next((e for e in eventos if e["id"] == evento_id), None)
+
+            if evento:
+                return ExtrairResponse(
+                    success=True,
+                    evento_id=evento_id,
+                    nome=evento["metadata"].get("nome"),
+                    data=evento["metadata"].get("data"),
+                    local=evento["metadata"].get("local"),
+                    message=f"✅ Evento extraído com sucesso!"
+                )
+
+        return ExtrairResponse(
+            success=False,
+            message="❌ Não foi possível extrair dados do evento"
+        )
+
+    except Exception as erro:
+        logger.error(f"❌ Erro ao extrair evento: {erro}")
+        return ExtrairResponse(
+            success=False,
+            message=f"❌ Erro: {str(erro)}"
+        )
+
+
+@app.get("/eventos")
+async def listar_eventos():
+    """
+    📋 LISTA EVENTOS
+    Retorna todos os eventos armazenados no banco.
+    """
+    eventos = db_manager.listar_eventos()
+    return {
+        "total": len(eventos),
+        "eventos": eventos
+    }
+
+
+@app.delete("/eventos/{evento_id}")
+async def remover_evento(evento_id: str):
+    """
+    🗑️ REMOVE EVENTO
+    Remove um evento do banco pelo ID.
+    """
+    success = db_manager.remover_evento(evento_id)
+    return {"success": success, "evento_id": evento_id}
+
+
+@app.get("/estatisticas")
+async def obter_estatisticas():
+    """
+    📊 ESTATÍSTICAS
+    Retorna estatísticas do banco de dados.
+    """
+    return db_manager.obter_estatisticas()
 
 
 # ──────────────────────────────────────────

@@ -28,6 +28,9 @@ __pycache__/
 *.pyo
 *$py.class
 
+# Banco vetorial (regenerado automaticamente)
+data/
+
 # ═══════════════════════════════════════════
 # 📦 Node.js
 # ═══════════════════════════════════════════

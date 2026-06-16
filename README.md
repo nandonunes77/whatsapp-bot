@@ -1,7 +1,8 @@
 # 🤖 Triângulo Entretenimento — Chatbot WhatsApp
 
 Chatbot com IA para WhatsApp do evento **Arena Triângulo** (Uberlândia/MG).
-Responde perguntas sobre datas, ingressos, atrações e regras usando **FAQ + RAG + DeepSeek**.
+
+Sistema avançado com **ChromaDB (banco vetorial)** + **DeepSeek API** para respostas inteligentes e contextuais.
 
 ## 📦 Estrutura do Projeto
 
@@ -9,12 +10,19 @@ Responde perguntas sobre datas, ingressos, atrações e regras usando **FAQ + RA
 whatsapp-bot/
 │
 ├── 🐍 bot.py                  # Servidor FastAPI (porta 8000)
-├── 🧠 ai_engine.py            # Motor: FAQ keyword → RAG → DeepSeek
-├── 📚 knowledge_base.py       # Busca vetorial TF-IDF (RAG leve)
+├── 🧠 ai_engine.py            # Motor: ChromaDB + DeepSeek
 │
-├── 📋 knowledge/
-│   ├── faq.json               # Perguntas e respostas do evento
-│   └── documentos/            # PDFs, TXTs, MDs (futuro)
+├── 📦 database/
+│   └── __init__.py            # ChromaManager (banco vetorial)
+│
+├── 🔍 extractor/
+│   └── __init__.py            # Extrator de eventos (6 bilheterias)
+│
+├── 📚 knowledge/
+│   └── bot_soul.md            # Personalidade do bot
+│
+├── 💾 data/
+│   └── chromadb/              # Banco vetorial persistente
 │
 ├── 📱 whatsapp-bridge/
 │   ├── index.js               # Conexão WhatsApp (Baileys v7)
@@ -22,47 +30,87 @@ whatsapp-bot/
 │
 ├── 📦 requirements.txt        # Dependências Python
 ├── 🔑 .env                    # Chave DeepSeek (não versionar!)
-├── 📖 README.md               # Esta documentação
-└── 📁 venv/                   # Ambiente virtual Python
+├── 🧪 testar_extrator.py      # Script de teste do extrator
+└── 📖 README.md               # Esta documentação
 ```
 
-## ⚡ Fluxo de Resposta
+## ⚡ Arquitetura
 
 ```
-Usuário envia mensagem no WhatsApp
-    │
-    ▼
-📱 Bridge (Node.js / Baileys)
-    │ HTTP POST → /webhook
-    ▼
-🐍 Servidor Python (bot.py)
-    │
-    ▼
-🧠 AI Engine (ai_engine.py)
-    │
-    ├── 1️⃣ Keyword match na FAQ?
-    │       ├── ✅ SIM → Resposta direta (0 tokens gastos)
-    │       └── ❌ NÃO →
-    │               │
-    │               ▼
-    │         2️⃣ RAG (TF-IDF + cosseno)
-    │               ├── Busca SÓ os trechos relevantes
-    │               └── Manda ~50-200 tokens pra IA
-    │                      │
-    │                      ▼
-    │                🤖 DeepSeek API
-    │                      │
-    │                      ▼
-    └── ✅ Resposta volta pro WhatsApp
+┌─────────────────────────────────────────────────────────┐
+│                    GERENCIADOR DE EVENTOS                │
+│                                                         │
+│  POST /extrair?url=baladapp.com.br/evento/xxx           │
+│         │                                               │
+│         ▼                                               │
+│  ┌──────────────────┐                                   │
+│  │  EXTRACTOR ENGINE │                                   │
+│  │                   │                                   │
+│  │  ① JSON-LD ──────┼──→ Encontrou? → Estruturado      │
+│  │  ② HTML Parser ──┼──→ Encontrou? → Estruturado      │
+│  │  ③ IA DeepSeek ──┼──→ Fallback  → tokens            │
+│  └────────┬─────────┘                                   │
+│           │                                             │
+│           ▼                                             │
+│  ┌──────────────────┐                                   │
+│  │   CHROMADB        │                                   │
+│  │                   │                                   │
+│  │  📦 Eventos       │ (embeddings dos eventos)         │
+│  │  🤖 Bot SOUL      │ (personalidade fixa)             │
+│  │  📚 Info fixas    │ (dados permanentes)              │
+│  └────────┬─────────┘                                   │
+│           │                                             │
+└───────────┼─────────────────────────────────────────────┘
+            │
+            ▼
+┌─────────────────────────────────────────────────────────┐
+│                   WHATSAPP BOT                          │
+│                                                         │
+│  Usuário pergunta: "Quando é o evento X?"               │
+│         │                                               │
+│         ▼                                               │
+│  RAG consulta ChromaDB                                  │
+│         │                                               │
+│         ▼                                               │
+│  DeepSeek responde com contexto                         │
+└─────────────────────────────────────────────────────────┘
 ```
 
-## 💰 Economia com RAG
+## 🎯 Bilheterias Suportadas
 
-| Métrica | Sem RAG | Com RAG |
-|---------|---------|---------|
-| Tokens por consulta | ~2.000 (FAQ inteira) | ~50-200 (só relevante) |
-| Custo por 1.000 consultas | ~$0.30 | ~$0.02-0.03 |
-| Economia | — | **~90%** 🎉 |
+| Plataforma | Status | Método | Observação |
+|------------|--------|--------|------------|
+| GuicheLive | ✅ **FUNCIONANDO** | JSON-LD | Extração perfeita |
+| Ticket360 | ✅ **FUNCIONANDO** | JSON-LD | Extração perfeita |
+| BaladAPP | ⚠️ **INTERMITENTE** | cloudscraper | Cloudflare bloqueia às vezes |
+| Meu Bilhete | ❌ **SPA** | - | Precisa de browser headless |
+| IngressoLive | ⏳ **PENDENTE** | - | Não testado |
+| Q2 Ingressos | ⏳ **PENDENTE** | - | Não testado |
+
+### ⚠️ Limitações Conhecidas
+
+**BaladAPP** e **Meu Bilhete** são **Single Page Applications (SPAs)** que carregam conteúdo via JavaScript. Sem um browser headless (Chrome/Playwright), não é possível extrair dados desses sites de forma confiável.
+
+**Soluções futuras:**
+1. Instalar Chrome/Playwright no servidor
+2. Usar um serviço de proxy (ScrapingBee, Browserless)
+3. Encontrar APIs internas dos sites
+
+### 🤖 Fallback Inteligente
+
+O extrator usa IA (DeepSeek) como fallback quando faltam campos cruciais (data, local). Se a extração inicial não encontrar esses campos, a IA tenta extrair apenas o que falta, economizando tokens.
+
+## 📊 Dados Extraídos por Evento
+
+- Nome do evento
+- Data e horário
+- Local e endereço
+- Artistas/atrações
+- Tipos de ingresso (tipo, preço, lote)
+- Classificação etária
+- Descrição do evento
+- Se é coberto ou não
+- Onde comprar (plataforma + WhatsApp)
 
 ## 🚀 Como Rodar
 
@@ -78,103 +126,110 @@ python bot.py
 
 ```bash
 cd whatsapp-bridge
+npm install  # Se ainda não instalou
 node index.js
 ```
 
 Na primeira vez, **escaneie o QR Code** com seu WhatsApp.
 
-### 3. Testar sem o WhatsApp
+### 3. Extrair um Evento
 
 ```bash
-curl -X POST http://localhost:8000/webhook \
+# Via terminal
+python testar_extrator.py https://baladapp.com.br/evento/xxx
+
+# Via API (com servidor rodando)
+curl -X POST http://localhost:8000/extrair \
   -H "Content-Type: application/json" \
-  -d '{"de":"5511999998888","mensagem":"Qual o horário do evento?"}'
+  -d '{"url": "https://baladapp.com.br/evento/xxx"}'
 ```
 
-## 🔧 Arquivos em Detalhe
+## 🔧 Endpoints da API
 
-### `bot.py` — Servidor FastAPI
-- Endpoint `POST /webhook` — recebe mensagens do WhatsApp
-- Endpoint `GET /health` — health check
-- Executa com `uvicorn` em `0.0.0.0:8000`
-
-### `ai_engine.py` — Motor de IA
-- `buscar_na_faq()` — match por palavras-chave (rápido, sem API)
-- `perguntar_ia()` — fallback com RAG + DeepSeek
-- `remover_acentos()` — normalização pra comparação
-
-### `knowledge_base.py` — Busca Vetorial (RAG)
-- `BuscadorRAG` — classe principal
-- Usa `TfidfVectorizer` do scikit-learn
-- `obter_contexto_para_ia()` — monta contexto só com trechos relevantes
-- 21 documentos indexados da FAQ
-
-### `whatsapp-bridge/index.js` — Conexão WhatsApp
-- Usa `@whiskeysockets/baileys` v7 (⚠️ v6 NÃO funciona)
-- Reconexão automática se cair
-- Salva sessão (QR só na primeira vez)
-
-## 📝 FAQ — Como Editar
-
-Arquivo: `knowledge/faq.json`
-
-```json
+### Webhook WhatsApp
+```
+POST /webhook
 {
-  "empresa": { "nome": "Triângulo Entretenimento" },
-  "evento": { "nome": "Arena Triângulo", "local": "Castelli Eventos" },
-  "categorias": {
-    "minha_categoria": {
-      "label": "Minha Categoria",
-      "perguntas": [
-        {
-          "id": "exemplo_1",
-          "palavras_chave": ["keyword1", "keyword2"],
-          "pergunta": "O que o usuário pergunta?",
-          "resposta": "O que o bot responde"
-        }
-      ]
-    }
-  }
+  "de": "5511999998888",
+  "mensagem": "Qual o horário do evento?",
+  "nome": "João Silva"
 }
 ```
 
-> ⚠️ **Dica:** Depois de editar a FAQ, reinicie o servidor Python pra recarregar o RAG
+### Extrair Evento
+```
+POST /extrair
+{
+  "url": "https://baladapp.com.br/evento/xxx"
+}
+```
 
-## 📱 Comandos do WhatsApp
+### Listar Eventos
+```
+GET /eventos
+```
 
-O bot entende perguntas como:
+### Remover Evento
+```
+DELETE /eventos/{evento_id}
+```
 
-| Categoria | Exemplos |
-|-----------|----------|
-| 📅 Datas | "Quando vai ser?" "Que horas abre?" |
-| 🎟️ Ingressos | "Quanto custa?" "Onde compra?" "Tem meia?" |
-| 🎵 Atrações | "Quem vai tocar?" "Quais bandas?" |
-| 🚫 Regras | "O que não pode levar?" "Precisa de documento?" |
-| 📞 Contato | "Qual o Instagram?" "Telefone pra contato?" |
+### Estatísticas
+```
+GET /estatisticas
+```
 
-## 🔐 Dependências
+### Health Check
+```
+GET /health
+```
+
+## 🧠 Bot SOUL (Personalidade)
+
+O bot possui uma personalidade configurável em `knowledge/bot_soul.md`:
+
+- **Tom:** Amigável e profissional
+- **Formato:** Respostas curtas e diretas
+- **Emojis:** Usa com moderação
+- **Idioma:** Português do Brasil
+
+Para alterar a personalidade, edite o arquivo `knowledge/bot_soul.md` e reinicie o servidor.
+
+## 📚 Banco Vetorial (ChromaDB)
+
+O sistema usa **ChromaDB** para armazenar e buscar informações:
+
+- **Coleção `events`:** Eventos extraídos das bilheterias
+- **Coleção `bot_soul`:** Personalidade do bot
+- **Coleção `fixed_info`:** Informações fixas e permanentes
+
+Os dados são persistidos em `data/chromadb/`.
+
+## 🔧 Dependências
 
 **Python** (requirements.txt):
 - `fastapi` + `uvicorn` — servidor web
 - `httpx` — chamadas HTTP pra DeepSeek
 - `python-dotenv` — variáveis de ambiente
-- `scikit-learn` — TF-IDF (RAG leve)
-- `pypdf2` + `markdown` — leitura de documentos (futuro)
+- `chromadb` — banco vetorial
+- `beautifulsoup4` + `lxml` — parsing HTML
+- `pypdf2` + `markdown` — leitura de documentos
 
 **Node.js** (whatsapp-bridge/package.json):
 - `@whiskeysockets/baileys` v7.0.0-rc13 — conexão WhatsApp
 - `qrcode-terminal` — QR Code no terminal
 - `axios` — chamadas pro servidor Python
 
-## 🔮 Próximos Passos
+## 📝 Próximos Passos
 
-- [ ] Migrar de TF-IDF pra **ChromaDB + embeddings** (mais preciso)
-- [ ] Adicionar suporte a **documentos PDF** (descritivo do evento)
-- [ ] Dashboard de **estatísticas** (quantas perguntas, quais as mais frequentes)
-- [ ] **Filtro de contatos** (whitelist pra não responder amigos)
+- [ ] Implementar extração via IA (DeepSeek) para páginas sem JSON-LD
+- [ ] Adicionar suporte a mais bilheterias
+- [ ] Dashboard de estatísticas
+- [ ] Filtro de contatos (whitelist)
+- [ ] Suporte a documentos PDF
 
 ---
 
 Projeto: **Triângulo Entretenimento** — Arena Triângulo  
-Stack: Python FastAPI + Baileys + DeepSeek + TF-IDF RAG  
+Stack: Python FastAPI + Baileys + DeepSeek + ChromaDB  
 Idioma: 🇧🇷 Português do Brasil
