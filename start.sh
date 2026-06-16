@@ -114,8 +114,8 @@ if [ ! -d "node_modules" ]; then
     npm install
 fi
 
-# Inicia bridge
-node index.js > /tmp/whatsapp-bot-bridge.log 2>&1 &
+# Inicia bridge (mostra output no terminal para ver QR code)
+node index.js &
 NODE_PID=$!
 
 sleep 2
@@ -125,7 +125,6 @@ if kill -0 $NODE_PID 2>/dev/null; then
     echo -e "${GREEN}   ✅ WhatsApp bridge rodando (PID: $NODE_PID)${NC}"
 else
     echo -e "${RED}   ❌ Falha ao iniciar WhatsApp bridge${NC}"
-    echo -e "${YELLOW}   📋 Log: /tmp/whatsapp-bot-bridge.log${NC}"
     cleanup
 fi
 

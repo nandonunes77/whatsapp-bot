@@ -58,12 +58,8 @@ fi
 
 echo ""
 
-if [ -f "/tmp/whatsapp-bot-bridge.log" ]; then
-    echo -e "   ${YELLOW}WhatsApp bridge (últimas 5 linhas):${NC}"
-    tail -5 /tmp/whatsapp-bot-bridge.log 2>/dev/null | sed 's/^/      /'
-else
-    echo -e "   ${YELLOW}WhatsApp bridge: Sem logs${NC}"
-fi
+echo -e "   ${YELLOW}WhatsApp bridge: Output direto no terminal${NC}"
+echo -e "   ${YELLOW}   (QR code aparece ao iniciar com ./start.sh)${NC}"
 
 echo ""
 
